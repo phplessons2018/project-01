@@ -78,7 +78,7 @@ $getTime = date('d.m.Y H.i'); // фиксируем текущее время
 
 $file = 'file/orders.html';
 
-$title =  '<br><br>' . 'Заказ №' . $resultId[maxId] . '<br>';
+$title =  '<br><br>' . 'Заказ № ' . $resultId[maxId] . '<br>';
 $time = 'Время заказа - ' . $getTime;
 $fullAddress = 'Ваш заказ будет доставлен по адресу - ' . ', ' . $street . ', ' . $home . ', ' . $part . ', ' . $appt . ', ' . $floor . '<br>';
 $text = 'DarkBeefBurger за 500 рублей, 1 шт' . '<br>';
