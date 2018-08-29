@@ -50,10 +50,11 @@ $sth->execute();
 
 
 ////Посчитать колличество заказов
-$sql = "SELECT `id` FROM `orders` WHERE `id_user` = '$result[id]'";
+$sql = "SELECT MAX(`id`) as maxId FROM `orders` WHERE `id_user` = '$result[id]'";
 $getId = $pdo->prepare($sql);
 $getId->execute();
 $resultId = $getId->fetch(PDO::FETCH_ASSOC);
+
 
 ////взять id заказа
 $sql = "SELECT COUNT(*) as number_orders FROM `orders` WHERE `id_user` = '$result[id]'";
@@ -77,13 +78,13 @@ $getTime = date('d.m.Y H.i'); // фиксируем текущее время
 
 $file = 'file/orders.html';
 
-$title =  '<br><br>' . 'Заказ №' . $resultId[id] . '<br>';
+$title =  '<br><br>' . 'Заказ №' . $resultId[maxId] . '<br>';
 $time = 'Время заказа - ' . $getTime;
 $fullAddress = 'Ваш заказ будет доставлен по адресу - ' . ', ' . $street . ', ' . $home . ', ' . $part . ', ' . $appt . ', ' . $floor . '<br>';
 $text = 'DarkBeefBurger за 500 рублей, 1 шт' . '<br>';
 
 
-$orderMessage = $title . $time . $fullAddress . $text . $sumOrders;
+echo $orderMessage = $title . $time . $fullAddress . $text . $sumOrders;
 
 //Работаем с файлом, добавляя запись
 
