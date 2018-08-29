@@ -15,8 +15,33 @@ $pdo = new PDO($dsn, 'root', '12369874');
 </head>
 <body>
 <?php
-$stmt = $pdo->query('SELECT * FROM users');
+$stmt = $pdo->query('SELECT * FROM `users`');
 $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+?>
+
+<h2>База пользователей</h2>
+<?php
+foreach ($result as $key => $value) {
+        echo '<br>';
+    foreach ($value as $k => $v) {
+        echo $k . ' : '  .$v . '<br>';
+    }
+}
+?>
+<?php
+$stmt2 = $pdo->query('SELECT * FROM `orders`');
+$result2 = $stmt2->fetchAll(PDO::FETCH_ASSOC);
+
+?>
+<h2>База заказов</h2>
+<?php
+foreach ($result2 as $key => $value) {
+    echo '<br>';
+    foreach ($value as $k => $v) {
+        echo $k . ' : '  .$v . '<br>';
+    }
+}
 ?>
 </body>
 </html>
