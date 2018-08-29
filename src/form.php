@@ -3,8 +3,7 @@
 $dsn = "mysql:host=127.0.0.1;dbname=burgerDB;charset=utf8";
 $pdo = new PDO($dsn, 'root', '12369874');
 
-if (!empty($_POST['name']) AND !empty($_POST['email']) AND !empty($_POST['phone'])) {
-
+if (!empty($_POST['name']) and !empty($_POST['email']) and !empty($_POST['phone'])) {
     $name .= $_POST['name'];
     $email .= $_POST['email'];
     $phone .= $_POST['phone'];
@@ -20,7 +19,7 @@ if (!empty($_POST['name']) AND !empty($_POST['email']) AND !empty($_POST['phone'
 }
 
 
-str_replace(' ','',$email); // удаляем пробелы
+str_replace(' ','',$email);// удаляем пробелы
 $email = mb_strtolower($email); // приводим к нижнему регистру
 
 
@@ -32,7 +31,7 @@ $result = $sth->fetch(PDO::FETCH_ASSOC); // извлекаем следующу�
 
 
 // false если емаил не найден
-if ($result === false){
+if ($result === false) {
     $sql = "INSERT INTO `users`(`name`, `email`, `phone`) VALUES ('$name' ,'$email','$phone');"; // создаем нового пользователя
 
     $sth = $pdo->prepare($sql);
@@ -67,7 +66,7 @@ $resultCountId = $countId->fetch(PDO::FETCH_ASSOC);
 $userOrders = $resultCountId[number_orders]; // записываем результат
 
 
-if($userOrders == 1) {
+if ($userOrders == 1) {
     $sumOrders = 'Спасибо - это ваш первый заказ';
 } else {
     $sumOrders = 'Спасибо! Это уже ' . $userOrders . ' заказ';
@@ -93,10 +92,3 @@ $writeOrder = file_get_contents($file);
 $writeOrder .= $orderMessage;
 
 file_put_contents($file, $writeOrder);
-
-
-
-
-
-
-
