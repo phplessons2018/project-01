@@ -49,21 +49,22 @@ $sth = $pdo->prepare($sql);
 $sth->execute();
 
 
-////Посчитать колличество заказов
+//взять id заказа
 $sql = "SELECT MAX(`id`) as maxId FROM `orders` WHERE `id_user` = '$result[id]'";
 $getId = $pdo->prepare($sql);
 $getId->execute();
 $resultId = $getId->fetch(PDO::FETCH_ASSOC);
 
 
-////взять id заказа
+
+//Посчитать колличество заказов
 $sql = "SELECT COUNT(*) as number_orders FROM `orders` WHERE `id_user` = '$result[id]'";
 $countId = $pdo->prepare($sql);
 $countId->execute();
 $resultCountId = $countId->fetch(PDO::FETCH_ASSOC);
 
 
-$userOrders = $resultCountId[number_orders];
+$userOrders = $resultCountId[number_orders]; // записываем результат
 
 
 if($userOrders == 1) {
