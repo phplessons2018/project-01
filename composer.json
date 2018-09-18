@@ -1,0 +1,13 @@
+{
+  "autoload": {
+    "psr-4": {
+      "App\\": "app/"
+    }
+  },
+  "require": {
+    "swiftmailer/swiftmailer": "^6.0",
+    "twig/twig": "^2.5",
+    "intervention/image": "^2.4"
+    }
+
+}

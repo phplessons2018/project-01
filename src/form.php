@@ -1,5 +1,5 @@
 <?php
-
+require "vendor/autoload.php";
 $dsn = "mysql:host=127.0.0.1;dbname=burgerDB;charset=utf8";
 $pdo = new PDO($dsn, 'root', '12369874');
 
@@ -84,7 +84,7 @@ $fullAddress = 'Ваш заказ будет доставлен по адрес�
 $text = 'DarkBeefBurger за 500 рублей, 1 шт' . '<br>';
 
 
-echo $orderMessage = $title . $time . $fullAddress . $text . $sumOrders;
+$orderMessage = $title . $time . $fullAddress . $text . $sumOrders;
 
 //Работаем с файлом, добавляя запись
 
@@ -92,3 +92,5 @@ $writeOrder = file_get_contents($file);
 $writeOrder .= $orderMessage;
 
 file_put_contents($file, $writeOrder);
+
+

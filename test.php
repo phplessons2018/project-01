@@ -1,3 +1,5 @@
 <?php
+require "vendor/autoload.php";
 
-mail('users@ya.ru', 'msg', 'text_ms');
+$sendMail = new \App\Send();
+$sendMail->swift();
